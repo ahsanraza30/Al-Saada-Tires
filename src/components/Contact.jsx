@@ -15,7 +15,7 @@ export default function Contact({ scrollTo }) {
               <div className="contact-icon"><FaPhone /></div>
               <div>
                 <strong>Phone</strong>
-                <span>+974 6641 4281</span>
+                <span>+974 6642 4281</span>
               </div>
             </div>
             <div className="contact-item">
@@ -35,7 +35,7 @@ export default function Contact({ scrollTo }) {
 
             <div className="contact-btns">
               <a
-                href="https://wa.me/97466414281?text=Hello%20Al%20Saada%20Tyres"
+                href="https://wa.me/97466424281?text=Hello%20Al%20Saada%20Tyres"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-wa"

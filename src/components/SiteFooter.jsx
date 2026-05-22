@@ -52,7 +52,7 @@ export default function SiteFooter() {
                 <div className="footer-contact-icon-wrap"><FaPhone /></div>
                 <div>
                   <span className="footer-contact-label">Phone</span>
-                  <a href="tel:+97466414281" className="footer-contact-value">+974 6641 4281</a>
+                  <a href="tel:+97466424281" className="footer-contact-value">+974 6641 4281</a>
                 </div>
               </li>
               <li>

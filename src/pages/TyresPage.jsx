@@ -48,7 +48,7 @@ export default function TyresPage() {
   )
 
   const waMsg = (tyre) =>
-    `https://wa.me/97466414281?text=Hello%20Al%20Saada%20Tyres%2C%20I%20am%20interested%20in%20${encodeURIComponent(
+    `https://wa.me/97466424281?text=Hello%20Al%20Saada%20Tyres%2C%20I%20am%20interested%20in%20${encodeURIComponent(
       brand.name + ' ' + tyre.name + ' ' + tyre.size
     )}`
 
@@ -179,14 +179,14 @@ export default function TyresPage() {
         {/* ── CTA BUTTONS ── */}
         <div className="tp-cta-row">
           <a
-            href={`https://wa.me/97466414281?text=Hello%20Al%20Saada%20Tyres%2C%20I%20want%20to%20enquire%20about%20${encodeURIComponent(brand.name + ' Tyres')}`}
+            href={`https://wa.me/97466424281?text=Hello%20Al%20Saada%20Tyres%2C%20I%20want%20to%20enquire%20about%20${encodeURIComponent(brand.name + ' Tyres')}`}
             target="_blank"
             rel="noreferrer"
             className="tp-cta-btn tp-cta-wa"
           >
             <FaWhatsapp />WhatsApp
           </a>
-          <a href="tel:+97466414281" className="tp-cta-btn tp-cta-call">
+          <a href="tel:+97466424281" className="tp-cta-btn tp-cta-call">
             <FaPhone /> Call Us
           </a>
         </div>
