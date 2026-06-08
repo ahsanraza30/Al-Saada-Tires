@@ -1041,9 +1041,9 @@ a.footer-contact-value:hover { color: var(--accent); }
   /* TyresPage */
   .tp-topbar { padding: 0 14px; height: 60px; }
   .tp-logo { height: 38px; }
-  .tp-back { padding: 8px 12px; font-size: .75rem; gap: 6px; }
-  .tp-back-text { display: none; }
-  .tp-back svg { font-size: 1rem; }
+  .tp-back { padding: 8px 4px; font-size: .75rem; gap: 6px; }
+  .tp-back-text { display: inline; }
+  .tp-back svg { font-size: .9rem; }
   .tp-wa { padding: 8px 12px; font-size: .75rem; gap: 6px; }
   .tp-wa-text { display: none; }
   .tp-wa svg { font-size: 1rem; }
@@ -1102,16 +1102,15 @@ a.footer-contact-value:hover { color: var(--accent); }
   box-shadow: 0 4px 20px rgba(255,165,0,.3);
 }
 .tp-back {
-  display: flex; align-items: center; gap: 10px;
-  color: #000; font-size: .82rem; font-weight: 800;
-  letter-spacing: .1em; text-transform: uppercase;
-  background: rgba(0,0,0,.12); border: 1px solid rgba(0,0,0,.15);
-  padding: 9px 18px; border-radius: 4px;
-  transition: background .2s;
-  margin-left: 48px;
+  display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 4px;
+  background: rgba(0,0,0,.15); border: none;
+  color: #000; font-size: 1rem;
+  transition: background .2s, transform .2s;
+  flex-shrink: 0;
 }
-.tp-back:hover { background: rgba(0,0,0,.22); }
-.tp-back svg { font-size: 1rem; }
+.tp-back:hover { background: rgba(0,0,0,.25); transform: translateX(-2px); }
+.tp-back svg { font-size: 1rem; pointer-events: none; }
 .tp-logo { height: 44px; width: auto; max-width: 160px; object-fit: contain; }
 .tp-wa {
   display: flex; align-items: center; gap: 10px;
@@ -1127,14 +1126,14 @@ a.footer-contact-value:hover { color: var(--accent); }
 /* Hero strip */
 .tp-hero-strip {
   background: var(--black);
-  padding: 48px 40px 52px;
+  padding: 48px 24px 52px;
   position: relative; overflow: hidden;
 }
 .tp-hero-strip::after {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0;
   height: 4px; background: var(--accent);
 }
-.tp-hero-strip-inner { max-width: 700px; padding-left: 60px; }
+.tp-hero-strip-inner { max-width: 700px; padding-left: 0; }
 .tp-hero-tag {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: .7rem; font-weight: 700; letter-spacing: .22em;
@@ -1671,16 +1670,31 @@ a.footer-contact-value:hover { color: var(--accent); }
 
 .tp-card-brand {
   position: absolute; top: 10px; left: 10px;
-  background: var(--accent); color: var(--black);
-  font-size: .62rem; font-weight: 800; letter-spacing: .1em;
-  text-transform: uppercase; padding: 4px 10px; border-radius: 3px;
+  background: rgba(255, 165, 0, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 165, 0, 0.45);
+  color: #ffaa00;
+  font-size: .62rem; font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
 }
 .tp-card-stock {
   position: absolute; top: 10px; right: 10px;
-  font-size: .62rem; font-weight: 700; padding: 4px 10px; border-radius: 3px;
+  font-size: .62rem; font-weight: 700; padding: 4px 10px; border-radius: 4px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
-.tp-card-stock.in { background: rgba(0,0,0,.75); color: #4ade80; }
-.tp-card-stock.low { background: rgba(0,0,0,.75); color: #fbbf24; }
+.tp-card-stock.in {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+.tp-card-stock.low {
+  background: rgba(251, 191, 36, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  color: #fbbf24;
+}
 
 .tp-card-body { padding: 18px; }
 .tp-card-name { font-size: .78rem; font-weight: 700; color: var(--black); margin-bottom: 4px; }

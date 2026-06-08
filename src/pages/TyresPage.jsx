@@ -163,8 +163,8 @@ export default function TyresPage() {
 
       {/* ── TOPBAR ── */}
       <header className="tp-topbar">
-        <button className="tp-back" onClick={() => navigate('/')}>
-          <FaArrowLeft /> <span className="tp-back-text">Back to Home</span>
+        <button className="tp-back" onClick={() => navigate('/')} aria-label="Back to Home">
+          <FaArrowLeft />
         </button>
         <div style={{flex:1}} />
         <img src="/continental-nav.png" alt="Al Saada Tyres" className="tp-logo" />

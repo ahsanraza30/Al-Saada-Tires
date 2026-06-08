@@ -20,18 +20,18 @@ const tyreImages = {
 
 const tyreImage = {
  continental: [
-    './public/continental-1.webp',
-    './public/Continental-2.webp',
-    './public/continental-3.png',
-    './public/continental-4.jpg',
-    './public/Continental-5.png',
-    './public/continental-6.webp',
-    './public/continental-7.webp',
-    './public/continental-8.jpg',
-    './public/continental-9.webp',
-    './public/continental-10.jpg',
-    './public/continental-11.webp',
-    './public/continental-12.webp',
+    'continental-1.webp',
+    'Continental-2.webp',
+    'continental-3.png',
+    'continental-4.jpg',
+    'Continental-5.png',
+    'continental-6.webp',
+    'continental-7.webp',
+    'continental-8.jpg',
+    'continental-9.webp',
+    'continental-10.jpg',
+    'continental-11.webp',
+    'continental-12.webp',
   ],
 }
 

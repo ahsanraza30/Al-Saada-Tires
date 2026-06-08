@@ -20,7 +20,7 @@ const categories = [
     title: 'SUV Tyres',
     description: 'Grip and stability for every terrain.',
     icon: <FaCar />,
-    image: './public/suv-1.png',
+    image: 'suv-1.png',
     brand: 'michelin',
   },
   {
