@@ -50,11 +50,11 @@ const reviews = [
 ]
 
 const galleryItems = [
-  '/hero.jpg',
-  'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80',
+  'wheel-balancing.jpg',
+  'wheel-alignment.avif',
+  'tyre-repair.png',
+  'battery.webp',
+  'oil-change.webp',
 ]
 
 export default function Home() {
