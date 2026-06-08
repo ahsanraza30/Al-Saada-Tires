@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Brands from '../components/Brands'
@@ -41,12 +41,6 @@ const products = [
     price: 'QAR 2,320', stock: 'In Stock',
     image: 'bridgestone-1.jpg',
   },
-]
-
-const reviews = [
-  { id: 1, name: 'Saif Al-Harbi',     rating: 5, text: 'Great pricing and fast fitment. My SUV feels more stable than ever. Highly recommend!' },
-  { id: 2, name: 'Fatima Al-Mutairi', rating: 5, text: 'Professional team, honest advice, and the tyres look amazing on my car. Will come back.' },
-  { id: 3, name: 'Omar Al-Shehri',    rating: 5, text: 'Quick service and genuine products. Al Saada Tyres is the best shop in Riyadh.' },
 ]
 
 const galleryItems = [
