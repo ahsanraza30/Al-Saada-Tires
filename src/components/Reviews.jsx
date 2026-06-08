@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { FaChevronLeft, FaChevronRight, FaQuoteLeft } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight, FaStar, FaQuoteRight } from 'react-icons/fa'
 
 const reviews = [
   {
     id: 1,
-    name: 'Nora Al-Qahtani',       // tes1 = larki
+    name: 'Nora Al-Qahtani',
     role: 'Luxury Car Owner',
     image: '/tes1.jpg',
     rating: 5,
@@ -54,17 +54,14 @@ const reviews = [
 
 export default function Reviews() {
   const [current, setCurrent] = useState(0)
-  const [dir, setDir] = useState('next')
   const [animating, setAnimating] = useState(false)
+  const [dir, setDir] = useState('next')
 
   const goTo = useCallback((index, direction = 'next') => {
     if (animating) return
     setDir(direction)
     setAnimating(true)
-    setTimeout(() => {
-      setCurrent(index)
-      setAnimating(false)
-    }, 350)
+    setTimeout(() => { setCurrent(index); setAnimating(false) }, 400)
   }, [animating])
 
   const prev = () => goTo((current - 1 + reviews.length) % reviews.length, 'prev')
@@ -78,75 +75,86 @@ export default function Reviews() {
   const r = reviews[current]
 
   return (
-    <section id="reviews" className="reviews-section">
-      <div className="container">
-        <div className="tag">Customer Reviews</div>
-        <h2 className="section-title dark">What Our Customers Say</h2>
-        <p className="section-sub">Real feedback from drivers across Qatar.</p>
+    <section id="reviews" className="rv-section">
 
-        <div className="testimonial-wrap">
-          <div className={`testimonial-card ${animating ? `slide-out-${dir}` : `slide-in-${dir}`}`}>
+      {/* ── BG image — full bleed ── */}
+      <div
+        className={`rv-bg ${animating ? 'rv-bg-out' : 'rv-bg-in'}`}
+        style={{ backgroundImage: `url(${r.image})` }}
+      />
+      <div className="rv-bg-overlay" />
 
-            {/* Left — photo with name overlay */}
-            <div className="testimonial-photo-col">
-              <div className="testimonial-photo">
-                <img src={r.image} alt={r.name} />
-                <div className="testimonial-photo-overlay">
-                  <strong>{r.name}</strong>
-                  <span>{r.role}</span>
-                </div>
-              </div>
+      <div className="rv-inner">
+
+        {/* ── Header ── */}
+        <div className="rv-header">
+          <span className="rv-tag">Customer Reviews</span>
+          <h2 className="rv-title">What Our Customers Say</h2>
+        </div>
+
+        {/* ── Main card ── */}
+        <div className={`rv-card ${animating ? `rv-out-${dir}` : `rv-in-${dir}`}`}>
+
+          {/* Avatar */}
+          <div className="rv-avatar-wrap">
+            <div className="rv-avatar">
+              <img src={r.image} alt={r.name} />
             </div>
-
-            {/* Right — review content */}
-            <div className="testimonial-content-col">
-              <FaQuoteLeft className="t-quote" />
-              <div className="t-stars">{'★'.repeat(r.rating)}</div>
-              <p className="t-text">"{r.text}"</p>
-              <div className="t-divider" />
-              <div className="t-meta">
-                <strong>{r.name}</strong>
-                <span>{r.role}</span>
-              </div>
-            </div>
+            <div className="rv-avatar-ring" />
           </div>
 
-          {/* Bottom controls */}
-          <div className="testimonial-footer">
-            {/* Thumbnails */}
-            <div className="t-thumbs">
-              {reviews.map((rev, i) => (
-                <button
-                  key={rev.id}
-                  className={`t-thumb ${i === current ? 'active' : ''}`}
-                  onClick={() => goTo(i, i > current ? 'next' : 'prev')}
-                  aria-label={rev.name}
-                >
-                  <img src={rev.image} alt={rev.name} />
-                </button>
+          {/* Content */}
+          <div className="rv-body">
+            {/* Stars */}
+            <div className="rv-stars">
+              {Array.from({ length: r.rating }).map((_, i) => (
+                <FaStar key={i} className="rv-star" />
               ))}
             </div>
 
-            {/* Arrows + dots */}
-            <div className="t-nav">
-              <button className="t-arrow" onClick={prev} aria-label="Previous">
-                <FaChevronLeft />
-              </button>
-              <div className="t-dots">
-                {reviews.map((_, i) => (
-                  <button
-                    key={i}
-                    className={`t-dot ${i === current ? 'active' : ''}`}
-                    onClick={() => goTo(i, i > current ? 'next' : 'prev')}
-                  />
-                ))}
-              </div>
-              <button className="t-arrow" onClick={next} aria-label="Next">
-                <FaChevronRight />
-              </button>
+            {/* Quote icon */}
+            <FaQuoteRight className="rv-quote-icon" />
+
+            {/* Text */}
+            <p className="rv-text">{r.text}</p>
+
+            {/* Author */}
+            <div className="rv-author">
+              <span className="rv-author-name">{r.name}</span>
+              <span className="rv-author-role">{r.role}</span>
             </div>
           </div>
         </div>
+
+        {/* ── Controls ── */}
+        <div className="rv-controls">
+
+          {/* Thumbnails */}
+          <div className="rv-thumbs">
+            {reviews.map((rev, i) => (
+              <button
+                key={rev.id}
+                className={`rv-thumb ${i === current ? 'active' : ''}`}
+                onClick={() => goTo(i, i > current ? 'next' : 'prev')}
+                aria-label={rev.name}
+              >
+                <img src={rev.image} alt={rev.name} />
+              </button>
+            ))}
+          </div>
+
+          {/* Arrows */}
+          <div className="rv-arrows">
+            <button className="rv-arrow" onClick={prev} aria-label="Previous">
+              <FaChevronLeft />
+            </button>
+            <span className="rv-counter">{current + 1} / {reviews.length}</span>
+            <button className="rv-arrow" onClick={next} aria-label="Next">
+              <FaChevronRight />
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
   )
