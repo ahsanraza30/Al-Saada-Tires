@@ -21,7 +21,7 @@ export default function Products({ products = [] }) {
               <div className="product-img">
                 <img src={p.image} alt={p.name} loading="lazy" />
                 <span className="product-badge">{p.brand}</span>
-                <span className="product-stock-badge">{p.stock}</span>
+                <span className={`product-stock-badge${p.stock === 'Low Stock' ? ' low' : ''}`}>{p.stock}</span>
               </div>
               <div className="product-body">
                 <div className="product-brand-tag">{p.brand}</div>
