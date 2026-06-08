@@ -29,7 +29,7 @@ export default function Contact({ scrollTo }) {
               <div className="contact-icon"><FaClock /></div>
               <div>
                 <strong>Working Hours</strong>
-                <span>Sat – Thu: 8:00 AM – 11:00 PM</span>
+                <span>24/7: 8:00 AM – 11:00 PM</span>
               </div>
             </div>
 

@@ -22,24 +22,24 @@ const menuItems = [
 
 const products = [
   {
+    name: 'RoadMaster X', size: '275/40 R20', brand: 'Continental',
+    price: 'QAR 1,990', stock: 'In Stock',
+    image: '/continental-1.webp',
+  },
+  {
     name: 'RXL Trail Sport', size: '245/45 R19', brand: 'Pirelli',
     price: 'QAR 1,850', stock: 'In Stock',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    image: 'pirelli-1.jpg',
   },
   {
     name: 'ProGrip Max', size: '265/60 R18', brand: 'Michelin',
     price: 'QAR 2,050', stock: 'Low Stock',
-    image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    name: 'RoadMaster X', size: '275/40 R20', brand: 'Continental',
-    price: 'QAR 1,990', stock: 'In Stock',
-    image: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=800&q=80',
+    image: 'micheline-1.webp',
   },
   {
     name: 'GripForce GT', size: '305/35 R21', brand: 'Bridgestone',
     price: 'QAR 2,320', stock: 'In Stock',
-    image: 'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=800&q=80',
+    image: 'bridgestone-1.jpg',
   },
 ]
 

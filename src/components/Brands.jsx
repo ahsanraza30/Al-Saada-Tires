@@ -6,7 +6,7 @@ const brands = [
   { name: 'Pirelli',     logo: 'pirelli-logo.png' },
   { name: 'Continental', logo: '/continental.png' },
   { name: 'Yokohama',    logo: 'yokohama.png' },
-  { name: 'Dunlop',      logo: 'dunlop.png' },
+  // { name: 'Dunlop',      logo: 'dunlop.png' },
   { name: 'Goodyear',    logo: 'goodyear.png' },
   { name: 'Hankook',     logo: 'hankook.png' },
 ]

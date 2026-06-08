@@ -3,32 +3,32 @@ import { FaCar, FaTachometerAlt, FaMountain, FaGem, FaArrowRight } from 'react-i
 
 const categories = [
   {
-    title: 'SUV Tyres',
-    description: 'Grip and stability for every terrain.',
-    icon: <FaCar />,
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80',
-    brand: 'michelin',
+    title: 'Luxury Tyres',
+    description: 'Silent, smooth, premium comfort.',
+    icon: <FaGem />,
+    image: 'c-tesla-1.png',
+    brand: 'continental',
   },
   {
     title: 'Sports Tyres',
     description: 'Precision performance at high speed.',
     icon: <FaTachometerAlt />,
-    image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80',
+    image: 'pzero-1.jpg',
     brand: 'pirelli',
+  },
+   {
+    title: 'SUV Tyres',
+    description: 'Grip and stability for every terrain.',
+    icon: <FaCar />,
+    image: './public/suv-1.png',
+    brand: 'michelin',
   },
   {
     title: 'Off-Road Tyres',
     description: 'Conquer rough and rocky roads.',
     icon: <FaMountain />,
-    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
+    image: 'bg-1.jpg',
     brand: 'bridgestone',
-  },
-  {
-    title: 'Luxury Tyres',
-    description: 'Silent, smooth, premium comfort.',
-    icon: <FaGem />,
-    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80',
-    brand: 'continental',
   },
 ]
 

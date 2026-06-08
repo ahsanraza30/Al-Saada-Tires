@@ -1,8 +1,114 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { FaArrowLeft, FaWhatsapp, FaSearch, FaTimes, FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaChevronRight, FaTrophy, FaChevronDown } from 'react-icons/fa'
+import { FaArrowLeft, FaWhatsapp, FaSearch, FaTimes, FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaChevronRight, FaTrophy, FaChevronDown, FaExpand } from 'react-icons/fa'
 import brandsData from '../data/tyresData'
 import SiteFooter from '../components/SiteFooter'
+
+// ── Lightbox Component ──
+function Lightbox({ src, alt, name, size, price, brandName, stock, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+
+  const waLink = `https://wa.me/97466424281?text=Hello%20Al%20Saada%20Tyres%2C%20I%20am%20interested%20in%20${encodeURIComponent(brandName + ' ' + name + ' ' + size)}`
+  const isInStock = stock === 'In Stock'
+
+  return (
+    <div className="lb-overlay" onClick={onClose}>
+      {/* Ambient blurred bg */}
+      <div className="lb-ambient" style={{ backgroundImage: `url(${src})` }} />
+
+      {/* Modal */}
+      <div className="lb-modal" onClick={e => e.stopPropagation()}>
+
+        {/* ── LEFT: full image panel ── */}
+        <div className="lb-panel-img">
+          {/* floating brand watermark */}
+          <span className="lb-watermark">{brandName}</span>
+          {/* image */}
+          <img src={src} alt={alt} className="lb-photo" />
+          {/* rolling shadow */}
+          <div className="lb-tyre-shadow" />
+          {/* bottom gradient */}
+          <div className="lb-panel-gradient" />
+          {/* bottom label */}
+          <div className="lb-panel-label">
+            <span className="lb-panel-name">{name}</span>
+            <span className="lb-panel-size">{size}</span>
+          </div>
+        </div>
+
+        {/* ── RIGHT: details panel ── */}
+        <div className="lb-panel-info">
+
+          {/* top: close btn */}
+          <div className="lb-info-top">
+            <div className={`lb-stock-pill ${isInStock ? 'pill-in' : 'pill-low'}`}>
+              <span className="lb-pill-dot" />
+              {stock}
+            </div>
+            <button className="lb-close-btn" onClick={onClose} aria-label="Close">
+              <FaTimes />
+            </button>
+          </div>
+
+          {/* main content */}
+          <div className="lb-info-body">
+            <p className="lb-info-brand">{brandName}</p>
+            <h2 className="lb-info-title">{name}</h2>
+
+            {/* spec row */}
+            <div className="lb-spec-row">
+              <div className="lb-spec-item">
+                <span className="lb-spec-label">SIZE</span>
+                <span className="lb-spec-val">{size}</span>
+              </div>
+              <div className="lb-spec-sep" />
+              <div className="lb-spec-item">
+                <span className="lb-spec-label">TYPE</span>
+                <span className="lb-spec-val">Premium</span>
+              </div>
+              <div className="lb-spec-sep" />
+              <div className="lb-spec-item">
+                <span className="lb-spec-label">ORIGIN</span>
+                <span className="lb-spec-val">Original</span>
+              </div>
+            </div>
+
+            {/* price */}
+            <div className="lb-price-section">
+              <span className="lb-price-lbl">PRICE</span>
+              <div className="lb-price-wrap">
+                <span className="lb-price-main">{price}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* actions */}
+          <div className="lb-info-actions">
+            <a href={waLink} target="_blank" rel="noreferrer" className="lb-action-wa">
+              <FaWhatsapp />
+              <span>Order on WhatsApp</span>
+            </a>
+            <a href="tel:+97466424281" className="lb-action-call">
+              <FaPhone />
+            </a>
+          </div>
+
+          {/* esc hint */}
+          <p className="lb-esc-hint">Press <kbd>ESC</kbd> to close</p>
+        </div>
+
+      </div>
+    </div>
+  )
+}
 
 export default function TyresPage() {
   const navigate = useNavigate()
@@ -20,9 +126,9 @@ export default function TyresPage() {
   const [activeBrand, setActiveBrand] = useState(getInitialBrand)
   const [search, setSearch] = useState('')
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [lightbox, setLightbox] = useState(null) // { src, alt }
   const dropdownRef = useRef(null)
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handler = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -150,12 +256,17 @@ export default function TyresPage() {
         <div className="tp-grid">
           {filtered.map((tyre, i) => (
             <article className="tp-card" key={i}>
-              <div className="tp-card-img">
+              <div
+                className="tp-card-img tp-card-img-clickable"
+                onClick={() => setLightbox({ src: tyre.image, alt: tyre.name, name: tyre.name, size: tyre.size, price: tyre.price, brandName: brand.name, stock: tyre.stock })}
+                title="Click to view image"
+              >
                 <img src={tyre.image} alt={tyre.name} loading="lazy" />
                 <span className="tp-card-brand">{brand.name}</span>
                 <span className={`tp-card-stock ${tyre.stock === 'In Stock' ? 'in' : 'low'}`}>
                   {tyre.stock}
                 </span>
+                <span className="tp-card-zoom-hint"><FaExpand /></span>
               </div>
               <div className="tp-card-body">
                 <h3 className="tp-card-name">{tyre.name}</h3>
@@ -194,6 +305,20 @@ export default function TyresPage() {
 
       {/* ── FOOTER ── */}
       <SiteFooter />
+
+      {/* ── LIGHTBOX ── */}
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          name={lightbox.name}
+          size={lightbox.size}
+          price={lightbox.price}
+          brandName={lightbox.brandName}
+          stock={lightbox.stock}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
   )
 }

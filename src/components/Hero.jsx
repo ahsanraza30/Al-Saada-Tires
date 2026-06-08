@@ -36,11 +36,11 @@ export default function Hero({ scrollTo }) {
 
         <div className="hero-stats">
           <div className="hero-stat">
-            <strong>1,200<span>+</span></strong>
+            <strong>1.5M<span>+</span></strong>
             <em>Tyres Fitted</em>
           </div>
           <div className="hero-stat">
-            <strong>8<span>+</span></strong>
+            <strong>20<span>+</span></strong>
             <em>Top Brands</em>
           </div>
           <div className="hero-stat">
