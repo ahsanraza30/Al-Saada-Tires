@@ -9,7 +9,7 @@ export default function SiteFooter() {
 
         {/* ── BRAND ROW ── */}
         <div className="footer-brand-row">
-          <img src="/fav.png" alt="Al Saada Tyres" className="footer-logo" />
+          <img src="/ft-logo.png" alt="Al Saada Tyres" className="footer-logo" />
           <p className="footer-tagline">
             Premium tyres &amp; expert fitment across Qatar.
             Your safety is our priority — every road, every season.
