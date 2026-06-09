@@ -4,7 +4,7 @@ import { FaWhatsapp, FaArrowRight } from 'react-icons/fa'
 export default function Hero({ scrollTo }) {
   return (
     <section id="home" className="hero">
-      <div className="hero-bg-img" />
+      <div className="hero-bg-img" style={{ backgroundImage: "url('/wheel-alignment.avif')" }} />
       <div className="hero-overlay" />
 
       <div className="hero-content">
