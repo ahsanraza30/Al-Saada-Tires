@@ -3,7 +3,7 @@ import { FaWhatsapp, FaArrowRight, FaBolt, FaTrophy, FaWrench, FaStar, FaMapMark
 
 const slides = [
   {
-    image: '/hero.jpg',
+    image: '/wheel-alignment.avif',
     icon: <FaBolt />,
     tag: 'Premium Tyre Shop — Qatar, Doha',
     title1: 'Drive Safe.',
@@ -11,7 +11,7 @@ const slides = [
     desc: 'Same-day tyre replacement, expert wheel alignment, and genuine brands. Trusted by 1,200+ drivers across Qatar.',
   },
   {
-    image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1600&q=80',
+    image: '/hero-1.avif',
     icon: <FaTrophy />,
     tag: 'Top Tyre Brands in Qatar',
     title1: 'Premium Tyres.',
@@ -19,7 +19,7 @@ const slides = [
     desc: 'Michelin, Pirelli, Continental, Bridgestone & more. All genuine, all in stock.',
   },
   {
-    image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80',
+    image: '/hero-2.avif',
     icon: <FaWrench />,
     tag: 'Expert Fitment Service',
     title1: 'Expert Team.',
@@ -27,7 +27,7 @@ const slides = [
     desc: 'Professional wheel balancing, alignment, and tyre rotation — done right, done fast.',
   },
   {
-    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1600&q=80',
+    image: '/hero-3.avif',
     icon: <FaStar />,
     tag: '5-Star Rated Service',
     title1: 'Trusted By',
@@ -35,7 +35,7 @@ const slides = [
     desc: 'Join thousands of satisfied customers who trust Al Saada Tyres for their vehicles.',
   },
   {
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1600&q=80',
+    image: '/hero-4.avif',
     icon: <FaMapMarkerAlt />,
     tag: 'Qatar, Doha',
     title1: 'Your Safety',
